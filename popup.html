@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+				width: 200px;
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				padding: 15px;
+				background-color: #f8f9fa;
+				margin: 0;
+				border-radius: 8px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+
+			.header {
+				text-align: center;
+				margin-bottom: 15px;
+				border-bottom: 1px solid #e1e4e8;
+				padding-bottom: 10px;
+			}
+
+			.header h1 {
+				margin: 0;
+				font-size: 18px;
+				color: #24292e;
+			}
+
+			.header p {
+				margin: 5px 0 0;
+				font-size: 12px;
+				color: #586069;
+			}
+
+			.button-group {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+
+			button {
+				width: 100%;
+				padding: 10px 15px;
+				border: none;
+				border-radius: 6px;
+				font-weight: 600;
+				font-size: 12px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.2s ease;
+				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+			}
+
+			button:hover {
+				transform: translateY(-1px);
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			}
+
+			button:active {
+				transform: translateY(1px);
+				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+			}
+
+			#rotateLeft {
+				background-color: #2ea44f;
+				color: white;
+			}
+
+			#rotateRight {
+				background-color: #0366d6;
+				color: white;
+			}
+
+			#reset {
+				background-color: #ff0000;
+				color: white;
+			}
+
+			.icon {
+				width: 24px;
+				height: 24px;
+				margin-right: 10px;
+			}
+
+			.footer {
+				margin-top: 15px;
+				text-align: center;
+				font-size: 11px;
+				color: #586069;
+				border-top: 1px solid #e1e4e8;
+				padding-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Page Flip</h1>
+		</div>
+
+		<div class="button-group">
+			<button id="rotateLeft">
+				<svg
+					class="icon"
+					stroke="currentColor"
+					fill="none"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<polyline points="1 4 1 10 7 10"></polyline>
+					<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+				</svg>
+				Left (Ctrl+ArrowLeft)
+			</button>
+			<button id="rotateRight">
+				<svg
+					class="icon"
+					stroke="currentColor"
+					fill="none"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<polyline points="23 4 23 10 17 10"></polyline>
+					<path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+				</svg>
+				Right (Ctrl+ArrowRight)
+			</button>
+			<button id="reset">
+				<svg
+					class="icon"
+					stroke="currentColor"
+					fill="currentColor"
+					stroke-width="0"
+					viewBox="0 0 512 512"
+					height="24px"
+					width="24px"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M256 16C123.45 16 16 123.45 16 256s107.45 240 240 240 240-107.45 240-240S388.55 16 256 16zm0 60c99.41 0 180 80.59 180 180s-80.59 180-180 180S76 355.41 76 256 156.59 76 256 76zm-80.625 60c-.97-.005-2.006.112-3.063.313v-.032c-18.297 3.436-45.264 34.743-33.375 46.626l73.157 73.125-73.156 73.126c-14.63 14.625 29.275 58.534 43.906 43.906L256 299.906l73.156 73.156c14.63 14.628 58.537-29.28 43.906-43.906l-73.156-73.125 73.156-73.124c14.63-14.625-29.275-58.5-43.906-43.875L256 212.157l-73.156-73.125c-2.06-2.046-4.56-3.015-7.47-3.03z"
+					></path>
+				</svg>
+				Reset View
+			</button>
+		</div>
+
+		<div class="footer">Page Flip v4.2</div>
+
+		<script src="popup.js"></script>
+	</body>
+</html>
