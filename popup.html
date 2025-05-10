@@ -1,97 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<style>
-			body {
-				width: 200px;
-				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-				padding: 15px;
-				background-color: #f8f9fa;
-				margin: 0;
-				border-radius: 8px;
-				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-			}
-
-			.header {
-				text-align: center;
-				margin-bottom: 15px;
-				border-bottom: 1px solid #e1e4e8;
-				padding-bottom: 10px;
-			}
-
-			.header h1 {
-				margin: 0;
-				font-size: 18px;
-				color: #24292e;
-			}
-
-			.header p {
-				margin: 5px 0 0;
-				font-size: 12px;
-				color: #586069;
-			}
-
-			.button-group {
-				display: flex;
-				flex-direction: column;
-				gap: 10px;
-			}
-
-			button {
-				width: 100%;
-				padding: 10px 15px;
-				border: none;
-				border-radius: 6px;
-				font-weight: 600;
-				font-size: 12px;
-				cursor: pointer;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				transition: all 0.2s ease;
-				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-			}
-
-			button:hover {
-				transform: translateY(-1px);
-				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-			}
-
-			button:active {
-				transform: translateY(1px);
-				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-			}
-
-			#rotateLeft {
-				background-color: #2ea44f;
-				color: white;
-			}
-
-			#rotateRight {
-				background-color: #0366d6;
-				color: white;
-			}
-
-			#reset {
-				background-color: #ff0000;
-				color: white;
-			}
-
-			.icon {
-				width: 24px;
-				height: 24px;
-				margin-right: 10px;
-			}
-
-			.footer {
-				margin-top: 15px;
-				text-align: center;
-				font-size: 11px;
-				color: #586069;
-				border-top: 1px solid #e1e4e8;
-				padding-top: 10px;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</head>
 	<body>
 		<div class="header">
@@ -152,6 +62,6 @@
 
 		<div class="footer">Page Flip v4.2</div>
 
-		<script src="popup.js"></script>
+		<script type="module" src="popup.js"></script>
 	</body>
 </html>
