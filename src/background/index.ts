@@ -11,7 +11,6 @@ chrome.commands.onCommand.addListener((command: string) => {
         chrome.action.setBadgeText({ text: "!" });
         chrome.action.setBadgeBackgroundColor({ color: "#FF0000" });
 
-        // Reset badge after 2 seconds
         setTimeout(() => {
           chrome.action.setBadgeText({ text: "" });
         }, 2000);
