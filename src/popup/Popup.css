@@ -166,9 +166,52 @@ body {
   color: #888780;
 }
 
-.button-group button svg {
+.icon {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.icon-logo {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  -webkit-mask-image: url(../assets/icon.svg);
+  mask-image: url(../assets/icon.svg);
+}
+
+.icon-lock {
+  width: 14px;
+  height: 14px;
+  -webkit-mask-image: url(../assets/lock.svg);
+  mask-image: url(../assets/lock.svg);
+}
+
+.icon-left, .icon-right {
   width: 22px;
   height: 22px;
+}
+
+.icon-left {
+  -webkit-mask-image: url(../assets/left.svg);
+  mask-image: url(../assets/left.svg);
+}
+
+.icon-right {
+  -webkit-mask-image: url(../assets/right.svg);
+  mask-image: url(../assets/right.svg);
+}
+
+.icon-reset {
+  width: 15px;
+  height: 15px;
+  -webkit-mask-image: url(../assets/reset.svg);
+  mask-image: url(../assets/reset.svg);
 }
 
 .button-group button.active {
@@ -210,11 +253,6 @@ body {
 
 .reset-btn:active:not(:disabled) {
   transform: scale(0.98);
-}
-
-.reset-btn svg {
-  width: 15px;
-  height: 15px;
 }
 
 .reset-btn:disabled {

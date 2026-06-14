@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { isValidURL, executeRotation } from "../utils";
-import {
-  RotateIcon,
-  LockIcon,
-  RotateLeftIcon,
-  RotateRightIcon,
-  ResetIcon,
-} from "./Icons";
 import "./Popup.css";
 
 const Popup: React.FC = () => {
@@ -50,7 +43,7 @@ const Popup: React.FC = () => {
       <div className="header">
         <div className="header-logo">
           <div className="header-icon">
-            <RotateIcon />
+            <span className="icon icon-logo" />
           </div>
           <div>
             <h1>Page Flip</h1>
@@ -61,7 +54,7 @@ const Popup: React.FC = () => {
 
       {isDisabled && (
         <div className="disabled-banner" role="alert">
-          <LockIcon />
+          <span className="icon icon-lock" />
           This page can't be rotated
         </div>
       )}
@@ -91,7 +84,7 @@ const Popup: React.FC = () => {
           onClick={() => sendCommand("left")}
           disabled={isDisabled}
         >
-          <RotateLeftIcon />
+          <span className="icon icon-left" />
           <span>Rotate left</span>
         </button>
         <button
@@ -100,7 +93,7 @@ const Popup: React.FC = () => {
           onClick={() => sendCommand("right")}
           disabled={isDisabled}
         >
-          <RotateRightIcon />
+          <span className="icon icon-right" />
           <span>Rotate right</span>
         </button>
       </div>
@@ -111,7 +104,7 @@ const Popup: React.FC = () => {
         onClick={() => sendCommand("reset")}
         disabled={isDisabled}
       >
-        <ResetIcon />
+        <span className="icon icon-reset" />
         Reset orientation
       </button>
 
