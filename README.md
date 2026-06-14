@@ -16,13 +16,11 @@ A Chrome extension that allows you to rotate web pages left, right, or reset the
 
 - **Manifest Version**: 3 (latest Chrome extension standard)
 - **Permissions**:
-
   - `activeTab`: Access to the currently active tab
   - `scripting`: Ability to inject scripts into web pages
   - `host_permissions`: Access to all URLs (for rotation on any website)
 
 - **Keyboard Shortcuts**:
-
   - `Ctrl+Insert`: Rotate counter-clockwise (left)
   - `Ctrl+Delete`: Rotate clockwise (right)
   - `Ctrl+Home`: Reset rotation
@@ -47,7 +45,6 @@ A Chrome extension that allows you to rotate web pages left, right, or reset the
 ### Usage
 
 1. **Via Popup**:
-
    - Click the extension icon in the Chrome toolbar
    - Click "Left", "Right", or "Reset View" buttons
 
