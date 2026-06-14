@@ -55,8 +55,14 @@ export function executeRotation(cmd: "left" | "right" | "reset"): void {
     if (!document.getElementById("portrait-mode-wrapper")) {
       const wrapper = document.createElement("div");
       wrapper.id = "portrait-mode-wrapper";
-      wrapper.style.width = "100%";
-      wrapper.style.minHeight = "100%";
+      wrapper.style.cssText = `
+        width: 100% !important;
+        min-height: 100% !important;
+        display: block !important;
+        position: relative !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      `;
 
       while (body.firstChild) {
         wrapper.appendChild(body.firstChild);
@@ -65,77 +71,66 @@ export function executeRotation(cmd: "left" | "right" | "reset"): void {
       body.appendChild(wrapper);
     }
 
-    html.style.width = "100vw";
-    html.style.height = "100vh";
-    html.style.overflow = "hidden";
-    html.style.margin = "0";
-    html.style.padding = "0";
+    html.style.setProperty("width", "100vw", "important");
+    html.style.setProperty("height", "100vh", "important");
+    html.style.setProperty("overflow", "hidden", "important");
+    html.style.setProperty("margin", "0", "important");
+    html.style.setProperty("padding", "0", "important");
 
-    const commonStyles = `
-      position: absolute;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      overflow-y: auto;
+    const baseBodyStyles = `
+      position: absolute !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
     `;
 
     switch (currentRotation) {
       case 90:
-        body.setAttribute(
-          "style",
-          `
-          ${commonStyles}
-          transform: rotate(90deg);
-          transform-origin: top left;
-          top: 0;
-          left: 100vw;
-          width: 100vh;
-          height: 100vw;
-          `,
-        );
+        body.style.cssText = `
+          ${baseBodyStyles}
+          transform: rotate(90deg) !important;
+          transform-origin: top left !important;
+          top: 0 !important;
+          left: 100vw !important;
+          width: 100vh !important;
+          height: 100vw !important;
+        `;
         break;
       case 180:
-        body.setAttribute(
-          "style",
-          `
-          ${commonStyles}
-          transform: rotate(180deg);
-          transform-origin: center center;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          `,
-        );
+        body.style.cssText = `
+          ${baseBodyStyles}
+          transform: rotate(180deg) !important;
+          transform-origin: center center !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+        `;
         break;
       case 270:
-        body.setAttribute(
-          "style",
-          `
-          ${commonStyles}
-          transform: rotate(270deg);
-          transform-origin: top left;
-          top: 100vh;
-          left: 0;
-          width: 100vh;
-          height: 100vw;
-          `,
-        );
+        body.style.cssText = `
+          ${baseBodyStyles}
+          transform: rotate(270deg) !important;
+          transform-origin: top left !important;
+          top: 100vh !important;
+          left: 0 !important;
+          width: 100vh !important;
+          height: 100vw !important;
+        `;
         break;
       case 0:
       default:
-        body.setAttribute(
-          "style",
-          `
-          ${commonStyles}
-          transform: rotate(0deg);
-          position: relative;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          `,
-        );
+        body.style.cssText = `
+          ${baseBodyStyles}
+          transform: rotate(0deg) !important;
+          position: relative !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+        `;
         break;
     }
 
