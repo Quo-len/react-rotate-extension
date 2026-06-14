@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Page Flip",
   "version": "4.2",
-  "description": "Flip the page left, right, or reset",
+  "description": "Effortlessly rotate any web page left, right, or reset to portrait. Supports keyboard shortcuts and provides a live preview for better readability.",
   "permissions": ["activeTab", "scripting"],
   "host_permissions": ["<all_urls>"],
   "action": {

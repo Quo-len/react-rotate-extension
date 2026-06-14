@@ -85,7 +85,7 @@ const Popup: React.FC = () => {
           disabled={isDisabled}
         >
           <span className="icon icon-left" />
-          <span>Rotate left</span>
+          <span>Rotate left (Ctrl+Insert)</span>
         </button>
         <button
           id="rotateRight"
@@ -94,7 +94,7 @@ const Popup: React.FC = () => {
           disabled={isDisabled}
         >
           <span className="icon icon-right" />
-          <span>Rotate right</span>
+          <span>Rotate right (Ctrl+Delete)</span>
         </button>
       </div>
 
