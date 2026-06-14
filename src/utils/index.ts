@@ -25,11 +25,14 @@ export function executeRotation(cmd: "left" | "right" | "reset"): void {
         while (wrapper.firstChild) body.appendChild(wrapper.firstChild);
         wrapper.remove();
       }
-      html.removeAttribute("style");
+      html.style.width = "";
+      html.style.height = "";
+      html.style.overflow = "";
+      html.style.margin = "";
+      html.style.padding = "";
       body.removeAttribute("style");
+      body.removeAttribute("data-rotation");
       window.scrollTo(0, 0);
-
-      document.body.setAttribute("data-rotation", "0");
       return;
     }
 
@@ -52,6 +55,8 @@ export function executeRotation(cmd: "left" | "right" | "reset"): void {
     if (!document.getElementById("portrait-mode-wrapper")) {
       const wrapper = document.createElement("div");
       wrapper.id = "portrait-mode-wrapper";
+      wrapper.style.width = "100%";
+      wrapper.style.minHeight = "100%";
 
       while (body.firstChild) {
         wrapper.appendChild(body.firstChild);
@@ -60,27 +65,32 @@ export function executeRotation(cmd: "left" | "right" | "reset"): void {
       body.appendChild(wrapper);
     }
 
-    const viewportHeight = window.innerHeight;
-    const viewportWidth = window.innerWidth;
-
-    html.style.width = "100%";
-    html.style.height = "100%";
+    html.style.width = "100vw";
+    html.style.height = "100vh";
     html.style.overflow = "hidden";
+    html.style.margin = "0";
+    html.style.padding = "0";
+
+    const commonStyles = `
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+    `;
 
     switch (currentRotation) {
       case 90:
         body.setAttribute(
           "style",
           `
+          ${commonStyles}
           transform: rotate(90deg);
-          transform-origin: left top;
-          position: absolute;
+          transform-origin: top left;
           top: 0;
-          left: ${viewportWidth}px;
-          width: ${viewportHeight}px;
-          height: ${viewportWidth}px;
-          overflow-x: hidden;
-          overflow-y: auto;
+          left: 100vw;
+          width: 100vh;
+          height: 100vw;
           `,
         );
         break;
@@ -88,15 +98,13 @@ export function executeRotation(cmd: "left" | "right" | "reset"): void {
         body.setAttribute(
           "style",
           `
+          ${commonStyles}
           transform: rotate(180deg);
           transform-origin: center center;
-          position: absolute;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
-          overflow-x: hidden;
-          overflow-y: auto;
+          width: 100vw;
+          height: 100vh;
           `,
         );
         break;
@@ -104,15 +112,13 @@ export function executeRotation(cmd: "left" | "right" | "reset"): void {
         body.setAttribute(
           "style",
           `
+          ${commonStyles}
           transform: rotate(270deg);
           transform-origin: top left;
-          position: absolute;
-          top: ${viewportHeight}px;
+          top: 100vh;
           left: 0;
-          width: ${viewportHeight}px;
-          height: ${viewportWidth}px;
-          overflow-x: hidden;
-          overflow-y: auto;
+          width: 100vh;
+          height: 100vw;
           `,
         );
         break;
@@ -121,14 +127,13 @@ export function executeRotation(cmd: "left" | "right" | "reset"): void {
         body.setAttribute(
           "style",
           `
+          ${commonStyles}
           transform: rotate(0deg);
           position: relative;
           top: 0;
           left: 0;
-          width: ${viewportWidth}px;
-          height: ${viewportHeight}px;
-          overflow-x: hidden;
-          overflow-y: auto;
+          width: 100vw;
+          height: 100vh;
           `,
         );
         break;
